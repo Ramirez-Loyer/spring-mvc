@@ -12,22 +12,40 @@
 	<div class="card ">
 		<div class="card-header bg-primary">Liste d'articles</div>
 		<div class="card-body">
-			<table class= "table">
 		
+			<form th:action="@{/index}" method="get">     <!-- validation du formulaire -> appel de la méthode index -->
+				<label>Keyword</label>
+				<input type="text" name="keyword" th:value="${keyword}">
+				<button type="submit" class="btn btn-primary">Search</button>
+			</form>
+			
+			<table class= "table">
 				<tr>
 		 			<th>Id</th> 	<th>Description</th> 	<th>Prix</th>
 				</tr>
-		
 				<tr th:each="a:${listArticle}"> 
 					<td th:text="${a.id}"> </td>
 					<td th:text="${a.description}"> </td>
 					<td th:text="${a.price}"> </td>	
+					<td>
+						<a th:href="@{/delete(id=${a.id} , page=${currentPage} , keyword=${keyword})}">Delete</a>
+					</td>	
 				</tr>
 		
 			</table>
+			
+			<ul class = "nav nav-pills">			
+					<li  th:class="${currentPage==status.index}?'active' : ' ' "  th:each="page, status:${pages}"  class="nav-item ">	
+					<!-- 4 activer cette balise si condition v -->  <!--  1 pour chaque indice de notre tableau "de pages" -->
+					<a th:href="@{/index(page=${status.index}, keyword=${keyword} ) }"  th:text="${status.index}" class="nav-link active mx-1"></a>
+					<!--  3 lein vers un indice/"page"		5 motclé = motclé courant		2 afficher l'indice du tableau -->
+					</li>
+			</ul> 
 		</div>
 	</div>
 </div>
+
+
 	
 </body>
 </html>
