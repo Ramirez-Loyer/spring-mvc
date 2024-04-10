@@ -43,5 +43,10 @@ public class ArticleController {
 		return  "redirect:/index?page="+page+"&keyword="+keyword;
 	}
 	
+	@GetMapping("/article")
+	public String article() {
+		return "article";
+	}
+	
 }
 
