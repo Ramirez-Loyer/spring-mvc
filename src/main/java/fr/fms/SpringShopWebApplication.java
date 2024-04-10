@@ -20,7 +20,7 @@ public class SpringShopWebApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		articleRepository.save(new Article(null, "Samsung S8", 250));
+		/*articleRepository.save(new Article(null, "Samsung S8", 250));
 		articleRepository.save(new Article(null, "Samsung S9", 300));
 		articleRepository.save(new Article(null, "Iphone 10 ", 500));
 		articleRepository.save(new Article(null, "Samsung S8", 250));
@@ -40,7 +40,7 @@ public class SpringShopWebApplication implements CommandLineRunner {
 		articleRepository.save(new Article(null, "Iphone 10 ", 500));
 		articleRepository.save(new Article(null, "Samsung S8", 250));
 		articleRepository.save(new Article(null, "Samsung S9", 300));
-		articleRepository.save(new Article(null, "Iphone 10 ", 500));
+		articleRepository.save(new Article(null, "Iphone 10 ", 500));*/
 		
 		articleRepository.findAll().forEach(a -> System.out.println(a)); 
 		
